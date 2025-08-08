@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Grimaldo Portfolio
 
-## Getting Started
+Portafolio personal desarrollado con **Next.js**, **TypeScript** y **Tailwind CSS**.  
+Muestra proyectos, skills y contacto, con enfoque en rendimiento y experiencia de usuario (UX).
 
-First, run the development server:
+## 🚀 Stack
+
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+- Vercel (deploy)
+- ESLint + Prettier
+
+## ✨ Features
+
+- Navbar sticky con navegación suave
+- Sección “Sobre mí” y skills técnicas/soft
+- Proyectos con tarjetas y filtros
+- Contacto (form básico / enlace a redes)
+- Diseño responsive y accesible
+
+## 🧱 Estructura del proyecto
+
+src/
+app/ # Rutas y layouts
+components/ # UI reutilizable
+styles/ # Estilos globales
+lib/ # Utilidades/helpers
+public/ # Imágenes y estáticos
+
+## ▶️ Quick Start
+
+Requisitos: Node 18+ y npm/pnpm/yarn.
 
 ```bash
+# Instalar dependencias
+npm install
+
+# Entorno de desarrollo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Lint y formato
+npm run lint
+npm run format
+
+# Build y preview
+npm run build
+npm run start
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧪 Calidad de código
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+ESLint para reglas de TypeScript/React
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Prettier para formato consistente
 
-## Learn More
+Convención de commits (opcional)
 
-To learn more about Next.js, take a look at the following resources:
+## 🚢 Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Deploy 1-click en Vercel.
+Variables de entorno → Project Settings > Environment Variables.
+Ramas: main (producción) y dev (preview).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🗺️ Roadmap
 
-## Deploy on Vercel
+Agregar blog técnico
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Dark mode
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+i18n (ES/EN)
+
+Animaciones suaves en secciones
+
+## 📬 Contacto
+
+Email: grimaldosanchez.dev@gmail.com
+
+LinkedIn / GitHub: (https://www.linkedin.com/in/grimaldo-sanchez/ https://github.com/Grima21)

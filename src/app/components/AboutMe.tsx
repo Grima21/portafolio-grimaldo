@@ -27,9 +27,11 @@ export default function AboutMe() {
               <div className="w-56 h-56 rounded-xl flex items-center justify-center shadow-inner">
                 <div>
                   <img
-                    className="rounded-2xl"
-                    src="./image/eva.jpg"
-                    alt="Photo Profile"
+                    src="./image/eva.webp"
+                    alt="Foto de perfil de Grimaldo Sánchez"
+                    width={224}
+                    height={224}
+                    className="rounded-2xl object-cover"
                   />
                 </div>
               </div>

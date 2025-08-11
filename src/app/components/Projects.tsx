@@ -95,7 +95,10 @@ const Projects = () => {
       : projects.filter((project) => project.category === activeFilter);
 
   return (
-    <section className="py-20 px-6 bg-gray-100 ">
+    <section
+      id="proyecto"
+      className="min-h-screen scroll-mt-24 py-20 px-6 bg-gray-100 "
+    >
       <div className="container mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

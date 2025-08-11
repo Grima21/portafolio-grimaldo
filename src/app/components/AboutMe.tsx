@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function AboutMe() {
   const techStack = [
     { name: "React", color: "bg-blue-500", level: 90 },
@@ -11,7 +13,7 @@ export default function AboutMe() {
   ];
 
   return (
-    <section className="h-screen mt-12">
+    <section id="sobre-mi" className="h-screen mt-12 min-h-screen scroll-mt-24">
       <div className="container mx-auto">
         <h2 className="text-center text-4xl font-bold mb-4">Sobre Mí</h2>
         <p className="text-center text-xl text-gray-700 size-100">
@@ -26,12 +28,13 @@ export default function AboutMe() {
               {/*contenedor Imagen */}
               <div className="w-56 h-56 rounded-xl flex items-center justify-center shadow-inner">
                 <div>
-                  <img
-                    src="./image/eva.webp"
+                  <Image
+                    src="/image/eva.webp"
                     alt="Foto de perfil de Grimaldo Sánchez"
                     width={224}
                     height={224}
                     className="rounded-2xl object-cover"
+                    priority
                   />
                 </div>
               </div>

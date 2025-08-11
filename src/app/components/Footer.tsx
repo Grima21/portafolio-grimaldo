@@ -3,7 +3,11 @@ import { Github, Linkedin, Mail, Heart, ArrowUp } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900  text-white py-16 px-6 relative">
+    <footer
+      id="footer
+    "
+      className="bg-gray-900  text-white py-16 px-6 relative min-h-screen scroll-mt-24"
+    >
       {/* Scroll to Top Button */}
       <button
         className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-blue-600 hover:bg-blue-700 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"

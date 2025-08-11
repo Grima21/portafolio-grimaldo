@@ -40,7 +40,10 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-20 px-6 bg-gray-50 ">
+    <section
+      id="contacto"
+      className="min-h-screen scroll-mt-24 py-20 px-6 bg-gray-50 "
+    >
       <div className="container mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

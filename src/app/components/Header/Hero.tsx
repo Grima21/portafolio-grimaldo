@@ -3,7 +3,10 @@ import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center pt-16 px-6 bg-gradient-to-br from-blue-50 via-white to-purple-50  ">
+    <section
+      id="hero"
+      className=" scroll-mt-24 min-h-screen flex items-center justify-center pt-16 px-6 bg-gradient-to-br from-blue-50 via-white to-purple-50  "
+    >
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Content */}

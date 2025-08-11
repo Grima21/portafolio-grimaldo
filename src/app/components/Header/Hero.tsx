@@ -33,7 +33,7 @@ const Hero = () => {
               {/* Social Links */}
               <div className="flex justify-center lg:justify-start space-x-4 pt-4">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/Grima21"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-gray-800  rounded-full hover:bg-black transition-all hover:scale-110"
@@ -41,7 +41,7 @@ const Hero = () => {
                   <Github className="w-5 h-5 text-white" />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/grimaldo-sanchez/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-blue-600  rounded-full hover:bg-blue-700  transition-all hover:scale-110"
@@ -49,7 +49,7 @@ const Hero = () => {
                   <Linkedin className="w-5 h-5 text-white" />
                 </a>
                 <a
-                  href="mailto:grimaldo@email.com"
+                  href="grimaldosanchez.dev@gmail.com"
                   className="p-3 bg-red-600  rounded-full hover:bg-red-700 transition-all hover:scale-110"
                 >
                   <Mail className="w-5 h-5 text-white" />

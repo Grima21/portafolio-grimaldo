@@ -1,3 +1,7 @@
+// src/components/Skills.tsx
+// src/components/Skills.tsx
+"use client";
+
 import React from "react";
 import {
   Code,
@@ -9,6 +13,22 @@ import {
   CheckCircle,
   Star,
 } from "lucide-react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { fadeUp, stagger } from "@/lib/motion";
+
+/* --- extras para listas con trail --- */
+const listStagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.04 } },
+};
+const listItem = (delay = 0) => ({
+  hidden: { opacity: 0, x: -8 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.28, ease: [0.22, 1, 0.36, 1], delay },
+  },
+});
 
 const Skills = () => {
   const technicalSkills = [
@@ -95,107 +115,198 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="py-20 px-6 bg-gray-100  mt-20 min-h-screen scroll-mt-24"
+      className="scroll-mt-24 bg-gray-100 px-6 py-20"
+      aria-labelledby="skills-heading"
     >
-      <div className="container mx-auto">
+      <div className="container mx-auto max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900  mb-6">
+        <motion.div
+          variants={stagger(0.1)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-10% 0px" }}
+          className="mb-16 text-center"
+        >
+          <motion.h2
+            id="skills-heading"
+            variants={fadeUp(0)}
+            className="mb-4 text-4xl font-bold text-gray-900 lg:text-5xl"
+          >
             Habilidades
-          </h2>
-          <p className="text-xl text-gray-700  max-w-3xl mx-auto">
+          </motion.h2>
+          <motion.p
+            variants={fadeUp(0.05)}
+            className="mx-auto max-w-3xl text-xl text-gray-700"
+          >
             Un conjunto diverso de habilidades técnicas y soft skills que me
-            permiten crear soluciones web excepcionales
-          </p>
-        </div>
+            permiten crear soluciones web excepcionales.
+          </motion.p>
+        </motion.div>
 
         {/* Technical Skills */}
         <div className="mb-20">
-          <h3 className="text-2xl font-bold text-gray-900  mb-10 text-center">
+          <h3 className="mb-10 text-center text-2xl font-bold text-gray-900">
             Habilidades Técnicas
           </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {technicalSkills.map((category, index) => (
-              <div
+          <motion.div
+            variants={stagger(0.08)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-10% 0px" }}
+            className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
+          >
+            {technicalSkills.map((category, i) => (
+              <motion.div
                 key={category.category}
-                className="group bg-white  rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-gray-200 "
+                variants={fadeUp(i * 0.05)}
+                whileHover={{ boxShadow: "0 0 0 2px rgba(99,102,241,.35)" }} // glow sutil
+                className="group rounded-2xl border-2 border-gray-200 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1"
               >
                 {/* Header */}
-                <div className="flex items-center space-x-3 mb-6">
-                  <div
-                    className={`p-3 ${category.color} rounded-lg text-white group-hover:scale-110 transition-transform`}
+                <div className="mb-6 flex items-center space-x-3">
+                  <motion.div
+                    whileHover={{ scale: 1.06, rotate: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ type: "spring", stiffness: 220, damping: 14 }}
+                    className={`rounded-lg ${category.color} p-3 text-white`}
+                    aria-hidden
                   >
                     {category.icon}
-                  </div>
-                  <h4 className="text-lg font-bold text-gray-900 ">
+                  </motion.div>
+                  <h4 className="text-lg font-bold text-gray-900">
                     {category.category}
                   </h4>
                 </div>
 
-                {/* Skills List */}
-                <div className="space-y-3">
-                  {category.skills.map((skill) => (
-                    <div
+                {/* Skills List con trail */}
+                <motion.ul
+                  variants={listStagger}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, margin: "-10% 0px" }}
+                  className="space-y-3"
+                >
+                  {category.skills.map((skill, idx) => (
+                    <motion.li
                       key={skill}
-                      className="flex items-center space-x-2 text-gray-700 "
+                      variants={listItem(idx * 0.02)}
+                      className="flex items-center space-x-2 text-gray-700"
                     >
-                      <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+                      <span className="h-3 w-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
                       <span className="text-sm font-medium">{skill}</span>
-                    </div>
+                    </motion.li>
                   ))}
-                </div>
-              </div>
+                </motion.ul>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* Soft Skills */}
         <div>
-          <h3 className="text-2xl font-bold text-gray-900  mb-10 text-center">
+          <h3 className="mb-10 text-center text-2xl font-bold text-gray-900">
             Soft Skills
           </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {softSkills.map((skill, index) => (
-              <div
+          <motion.div
+            variants={stagger(0.08)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-10% 0px" }}
+            className="grid grid-cols-1 gap-8 md:grid-cols-2"
+          >
+            {softSkills.map((skill, i) => (
+              <motion.div
                 key={skill.name}
-                className="group bg-white  rounded-2xl p-6 hover:shadow-xl transition-all duration-300 border-2 border-gray-200 "
+                variants={fadeUp(i * 0.05)}
+                whileHover={{ boxShadow: "0 0 0 2px rgba(99,102,241,.28)" }}
+                className="group rounded-2xl border-2 border-gray-200 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-start space-x-4">
-                  <div className="p-3 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg shadow-md group-hover:scale-110 transition-transform">
-                    <div className="text-white">{skill.icon}</div>
-                  </div>
+                  <motion.div
+                    whileHover={{ scale: 1.06, rotate: 1 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ type: "spring", stiffness: 220, damping: 14 }}
+                    className="rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 p-3 text-white shadow-md"
+                    aria-hidden
+                  >
+                    {skill.icon}
+                  </motion.div>
                   <div className="flex-1">
-                    <h4 className="text-lg font-bold text-gray-900  mb-2">
+                    <h4 className="mb-2 text-lg font-bold text-gray-900">
                       {skill.name}
                     </h4>
-                    <p className="text-gray-700  leading-relaxed">
+                    <p className="leading-relaxed text-gray-700">
                       {skill.description}
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
-        {/* Skills Summary */}
-        <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white shadow-2xl">
-            <h3 className="text-2xl font-bold mb-4">¿Listo para colaborar?</h3>
-            <p className="text-lg opacity-90 mb-6">
+        {/* Skills Summary CTA (magnético) */}
+        <motion.div
+          variants={fadeUp(0.2)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-10% 0px" }}
+          className="mt-16 text-center"
+        >
+          <div className="rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 p-8 text-white shadow-2xl">
+            <h3 className="mb-4 text-2xl font-bold">¿Listo para colaborar?</h3>
+            <p className="mb-6 text-lg opacity-90">
               Estas habilidades me permiten entregar proyectos de alta calidad,
               desde la conceptualización hasta la implementación final.
             </p>
-            <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition-all hover:scale-105 shadow-lg">
-              Hablemos
-            </button>
+            <MagneticCTA />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 };
 
 export default Skills;
+
+/* --------- CTA magnético reutilizable --------- */
+function MagneticCTA() {
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const x = useSpring(mx, { stiffness: 120, damping: 10 });
+  const y = useSpring(my, { stiffness: 120, damping: 10 });
+  const rotate = useTransform(x, [-12, 12], [-2, 2]);
+
+  return (
+    <motion.a
+      href="#contact"
+      aria-label="Ir a contacto"
+      className="group relative inline-block rounded-full bg-white px-8 py-3 font-bold text-blue-600 shadow-lg transition-colors hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+      style={{ x, y, rotate }}
+      onMouseMove={(e) => {
+        const r = (
+          e.currentTarget as HTMLAnchorElement
+        ).getBoundingClientRect();
+        mx.set((e.clientX - r.left - r.width / 2) / 6);
+        my.set((e.clientY - r.top - r.height / 2) / 6);
+      }}
+      onMouseLeave={() => {
+        mx.set(0);
+        my.set(0);
+      }}
+    >
+      Hablemos
+      {/* shimmer */}
+      <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-full">
+        <span
+          className="absolute -inset-1 opacity-0 transition-opacity group-hover:opacity-20
+                          bg-gradient-to-tr from-white/60 via-white/30 to-transparent
+                          [mask-image:linear-gradient(120deg,transparent,black,transparent)]
+                          animate-[shimmer_1.2s_linear_infinite]"
+        />
+      </span>
+    </motion.a>
+  );
+}

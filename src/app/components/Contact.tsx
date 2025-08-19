@@ -1,237 +1,251 @@
+// src/components/Contact.tsx
 "use client";
 
-import React, { useState } from "react";
-import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeUp, stagger } from "@/lib/motion";
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+const FORMSPREE_ID = "mbklkloe"; // <- TU ID EXACTO
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-
-    // Reset form after success
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 3000);
-  };
-
+export default function Contact() {
   return (
     <section
-      id="contacto"
-      className="min-h-screen scroll-mt-24 py-20 px-6 bg-gray-50 "
+      id="contact"
+      className="scroll-mt-24 bg-gray-50 px-6 py-20"
+      aria-labelledby="contact-heading"
     >
-      <div className="container mx-auto">
+      <div className="container mx-auto max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900  mb-6">
+        <motion.div
+          variants={stagger(0.1)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-10% 0px" }}
+          className="mb-16 text-center"
+        >
+          <motion.h2
+            id="contact-heading"
+            variants={fadeUp(0)}
+            className="mb-4 text-4xl font-bold text-gray-900 lg:text-5xl"
+          >
             Hablemos
-          </h2>
-          <p className="text-xl text-gray-700 300 max-w-3xl mx-auto">
-            ¿Tienes un proyecto en mente? Me encantaría saber más sobre tu idea
-            y cómo puedo ayudarte a hacerla realidad.
-          </p>
-        </div>
+          </motion.h2>
+          <motion.p
+            variants={fadeUp(0.05)}
+            className="mx-auto max-w-3xl text-xl text-gray-700"
+          >
+            ¿Tienes un proyecto en mente? Me encantará conocer tu idea y cómo
+            puedo ayudar a hacerla realidad.
+          </motion.p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Contact Info */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900  mb-6">
-                Información de Contacto
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
+          {/* Info */}
+          <motion.div
+            variants={stagger(0.08)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-10% 0px" }}
+            className="space-y-8"
+          >
+            <motion.div variants={fadeUp(0)}>
+              <h3 className="mb-6 text-2xl font-bold text-gray-900">
+                Información de contacto
               </h3>
-              <p className="text-gray-700 mb-8 leading-relaxed">
-                Siempre estoy abierto a discutir nuevas oportunidades, proyectos
-                interesantes o simplemente tener una conversación sobre
-                tecnología.
+              <p className="mb-8 leading-relaxed text-gray-700">
+                Abierto a oportunidades, proyectos interesantes o una buena
+                charla sobre tecnología.
               </p>
-            </div>
+            </motion.div>
 
-            {/* Contact Details */}
-            <div className="space-y-6">
-              <div className="flex items-center space-x-4">
-                <div className="p-3 bg-blue-600 rounded-lg shadow-lg">
-                  <Mail className="w-6 h-6 text-white" />
+            <motion.ul variants={stagger(0.06)} className="space-y-6">
+              <motion.li
+                variants={fadeUp(0.02)}
+                className="flex items-center gap-4"
+              >
+                <div className="rounded-lg bg-blue-600 p-3 shadow-lg">
+                  <Mail className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 ">Email</h4>
-                  <p className="text-gray-700 ">grimaldo.sanchez@email.com</p>
+                  <h4 className="font-semibold text-gray-900">Email</h4>
+                  <p className="text-gray-700">grimaldosanchez.dev@gmail.com</p>
                 </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="p-3 bg-green-600 rounded-lg shadow-lg">
-                  <Phone className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 ">Teléfono</h4>
-                  <p className="text-gray-700 ">+507 1234-5678</p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="p-3 bg-purple-600 rounded-lg shadow-lg">
-                  <MapPin className="w-6 h-6 text-white" />
+              </motion.li>
+              <motion.li
+                variants={fadeUp(0.04)}
+                className="flex items-center gap-4"
+              >
+                <div className="rounded-lg bg-green-600 p-3 shadow-lg">
+                  <Phone className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 ">Ubicación</h4>
-                  <p className="text-gray-700 ">Ciudad de Panamá, Panamá</p>
+                  <h4 className="font-semibold text-gray-900">Teléfono</h4>
+                  <p className="text-gray-700">+507 •••• ••••</p>
                 </div>
-              </div>
-            </div>
+              </motion.li>
+              <motion.li
+                variants={fadeUp(0.06)}
+                className="flex items-center gap-4"
+              >
+                <div className="rounded-lg bg-purple-600 p-3 shadow-lg">
+                  <MapPin className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900">Ubicación</h4>
+                  <p className="text-gray-700">Ciudad de Panamá, Panamá</p>
+                </div>
+              </motion.li>
+            </motion.ul>
 
-            {/* Call to Action */}
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 rounded-2xl text-white shadow-xl">
-              <h4 className="text-lg font-bold mb-2">
+            <motion.div
+              variants={fadeUp(0.08)}
+              className="rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-white shadow-xl"
+            >
+              <h4 className="mb-2 text-lg font-bold">
                 🚀 ¿Listo para empezar?
               </h4>
-              <p className="text-blue-100">
-                Envíame un mensaje y te responderé en menos de 24 horas.
-                ¡Hagamos que tu proyecto cobre vida!
-              </p>
-            </div>
-          </div>
+              <p className="text-blue-100">Te respondo en menos de 24 horas.</p>
+            </motion.div>
+          </motion.div>
 
-          {/* Contact Form */}
-          <div className="bg-white  rounded-2xl p-8 shadow-xl border-2 border-gray-200 ">
-            {isSubmitted ? (
-              <div className="text-center py-12">
-                <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                  <CheckCircle className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900  mb-2">
-                  ¡Mensaje Enviado!
-                </h3>
-                <p className="text-gray-700 ">
-                  Gracias por contactarme. Te responderé pronto.
-                </p>
+          {/* Form (POST directo a Formspree) */}
+          <motion.div
+            variants={fadeUp(0.05)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-10% 0px" }}
+            className="rounded-2xl border-2 border-gray-200 bg-white p-8 shadow-xl"
+          >
+            <form
+              action={`https://formspree.io/f/${FORMSPREE_ID}`}
+              method="POST"
+              className="space-y-6"
+            >
+              {/* redirect después de enviar */}
+              <input type="hidden" name="_redirect" value="/gracias" />
+              {/* (opcional) asunto fijo para el email */}
+              <input
+                type="hidden"
+                name="_subject"
+                value="[Portafolio] Nuevo mensaje"
+              />
+
+              {/* honeypot anti-spam */}
+              <div className="sr-only" aria-hidden>
+                <label htmlFor="company">Company</label>
+                <input
+                  id="company"
+                  name="company"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-bold text-gray-800  mb-2"
-                    >
-                      Nombre *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border-2 border-gray-300  rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-all"
-                      placeholder="Tu nombre"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-bold text-gray-800 mb-2"
-                    >
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border-2 border-gray-300  rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-all"
-                      placeholder="tu@email.com"
-                    />
-                  </div>
-                </div>
 
-                <div>
-                  <label
-                    htmlFor="subject"
-                    className="block text-sm font-bold text-gray-800  mb-2"
-                  >
-                    Asunto *
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-all"
-                    placeholder="¿En qué puedo ayudarte?"
-                  />
-                </div>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                <Field
+                  id="name"
+                  label="Nombre *"
+                  type="text"
+                  required
+                  placeholder="Tu nombre"
+                />
+                <Field
+                  id="email"
+                  label="Email *"
+                  type="email"
+                  required
+                  placeholder="tu@email.com"
+                  autoComplete="email"
+                />
+              </div>
 
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-bold text-gray-800  mb-2"
-                  >
-                    Mensaje *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={6}
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-300  rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white  text-gray-900 transition-all resize-none"
-                    placeholder="Cuéntame sobre tu proyecto..."
-                  />
-                </div>
+              <Field
+                id="subject"
+                label="Asunto *"
+                type="text"
+                required
+                placeholder="¿En qué puedo ayudarte?"
+              />
+              <TextArea
+                id="message"
+                label="Mensaje *"
+                rows={6}
+                required
+                placeholder="Cuéntame sobre tu proyecto…"
+              />
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-blue-400 disabled:to-purple-400 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 hover:shadow-xl hover:scale-105 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                      <span>Enviando...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5" />
-                      <span>Enviar Mensaje</span>
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
-          </div>
+              <button
+                type="submit"
+                className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-4 font-bold text-white transition-all duration-300 hover:scale-105 hover:from-blue-700 hover:to-purple-700 hover:shadow-xl"
+              >
+                <Send className="h-5 w-5" />
+                <span>Enviar Mensaje</span>
+              </button>
+            </form>
+          </motion.div>
         </div>
       </div>
     </section>
   );
-};
+}
 
-export default Contact;
+/* ---------- Subcomponentes simples (sin estado) ---------- */
+
+function Field(props: {
+  id: string;
+  label: string;
+  type: "text" | "email";
+  placeholder?: string;
+  autoComplete?: string;
+  required?: boolean;
+}) {
+  const { id, label, type, placeholder, autoComplete, required } = props;
+  return (
+    <div>
+      <label
+        htmlFor={id}
+        className="mb-2 block text-sm font-bold text-gray-800"
+      >
+        {label}
+      </label>
+      <input
+        id={id}
+        name={id}
+        type={type}
+        placeholder={placeholder}
+        autoComplete={autoComplete}
+        required={required}
+        className="w-full rounded-lg border-2 border-gray-300 bg-white px-4 py-3 text-gray-900 transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+  );
+}
+
+function TextArea(props: {
+  id: string;
+  label: string;
+  rows?: number;
+  placeholder?: string;
+  required?: boolean;
+}) {
+  const { id, label, rows = 6, placeholder, required } = props;
+  return (
+    <div>
+      <label
+        htmlFor={id}
+        className="mb-2 block text-sm font-bold text-gray-800"
+      >
+        {label}
+      </label>
+      <textarea
+        id={id}
+        name={id}
+        rows={rows}
+        placeholder={placeholder}
+        required={required}
+        className="w-full resize-none rounded-lg border-2 border-gray-300 bg-white px-4 py-3 text-gray-900 transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+  );
+}

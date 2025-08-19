@@ -1,151 +1,226 @@
+// src/components/Footer.tsx
+"use client";
+
 import React from "react";
-import { Github, Linkedin, Mail, Heart, ArrowUp } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Heart,
+  ArrowUp,
+  MessageCircle,
+} from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeUp, stagger } from "@/lib/motion";
 
 const Footer = () => {
+  const year = new Date().getFullYear();
+
+  const scrollToTop = () => {
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+  };
+
   return (
     <footer
-      id="footer
-    "
-      className="bg-gray-900  text-white py-16 px-6 relative min-h-screen scroll-mt-24"
+      id="footer"
+      className="relative scroll-mt-24 bg-gray-900 px-6 py-16 text-white"
+      aria-labelledby="footer-heading"
     >
+      <h2 id="footer-heading" className="sr-only">
+        Pie de página
+      </h2>
+
       {/* Scroll to Top Button */}
       <button
-        className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-blue-600 hover:bg-blue-700 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
-        aria-label="Scroll to top"
+        onClick={scrollToTop}
+        className="absolute -top-6 left-1/2 -translate-x-1/2 transform rounded-full bg-blue-600 p-3 shadow-lg transition-all duration-300 hover:scale-110 hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+        aria-label="Volver arriba"
+        data-cta="footer_back_to_top"
       >
-        <ArrowUp className="w-6 h-6" />
+        <ArrowUp className="h-6 w-6" />
       </button>
 
       <div className="container mx-auto">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        {/* Main Footer Content (ANIMADO) */}
+        <motion.div
+          variants={stagger(0.08)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-10% 0px" }}
+          className="mb-12 grid grid-cols-1 gap-12 md:grid-cols-3"
+        >
           {/* Brand & Description */}
-          <div className="text-center md:text-left">
-            <div className="text-3xl font-bold mb-4">
+          <motion.div variants={fadeUp(0)} className="text-center md:text-left">
+            <div className="mb-4 text-3xl font-bold">
               <span className="text-white">Grimaldo</span>
               <span className="text-blue-400"> Sánchez</span>
             </div>
-            <p className="text-gray-400 leading-relaxed mb-6">
+            <p className="mb-6 leading-relaxed text-gray-400">
               Desarrollador Front-End especializado en crear experiencias web
               excepcionales con tecnologías modernas.
             </p>
-            <div className="flex justify-center md:justify-start space-x-4">
+            <div className="flex justify-center space-x-4 md:justify-start">
               <a
-                href="https://github.com"
+                href="https://github.com/Grima21"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors group"
+                rel="me noopener noreferrer"
+                aria-label="GitHub"
+                data-cta="footer_github"
+                className="group rounded-lg bg-gray-800 p-3 transition-colors hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
               >
-                <Github className="w-5 h-5 group-hover:text-blue-400" />
+                <Github className="h-5 w-5 group-hover:text-blue-400" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/grimaldo-sanchez/"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors group"
+                rel="me noopener noreferrer"
+                aria-label="LinkedIn"
+                data-cta="footer_linkedin"
+                className="group rounded-lg bg-blue-700 p-3 transition-colors hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
               >
-                <Linkedin className="w-5 h-5 group-hover:text-blue-400" />
+                <Linkedin className="h-5 w-5 text-white" />
               </a>
               <a
-                href="mailto:grimaldo@email.com"
-                className="p-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors group"
+                href="mailto:grimaldosanchez.dev@gmail.com?subject=Proyecto%20-%20Portafolio&body=Hola%20Grimaldo%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20hablar%20sobre..."
+                aria-label="Enviar email"
+                data-cta="footer_email"
+                className="group rounded-lg bg-red-700 p-3 transition-colors hover:bg-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
               >
-                <Mail className="w-5 h-5 group-hover:text-blue-400" />
+                <Mail className="h-5 w-5 text-white" />
+              </a>
+              <a
+                href="https://wa.me/50763441331?text=Hola%20Grimaldo%2C%20vi%20tu%20portafolio"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                data-cta="footer_whatsapp"
+                className="group rounded-lg bg-green-600 p-3 transition-colors hover:bg-green-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
+              >
+                <MessageCircle className="h-5 w-5 text-white" />
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Quick Links */}
-          <div className="text-center">
-            <h3 className="text-xl font-bold mb-6">Enlaces Rápidos</h3>
+          <motion.nav
+            variants={fadeUp(0.05)}
+            className="text-center"
+            aria-label="Enlaces rápidos"
+          >
+            <h3 className="mb-6 text-xl font-bold">Enlaces Rápidos</h3>
             <div className="space-y-3">
               <a
-                href="#home"
-                className="block text-gray-400 hover:text-white transition-colors"
+                href="#hero"
+                className="block text-gray-300 transition-colors hover:text-white focus-visible:underline"
               >
                 Inicio
               </a>
               <a
-                href="#projects"
-                className="block text-gray-400 hover:text-white transition-colors"
+                href="#proyecto"
+                className="block text-gray-300 transition-colors hover:text-white focus-visible:underline"
               >
                 Proyectos
               </a>
               <a
-                href="#about"
-                className="block text-gray-400 hover:text-white transition-colors"
+                href="#sobre-mi"
+                className="block text-gray-300 transition-colors hover:text-white focus-visible:underline"
               >
                 Sobre mí
               </a>
               <a
                 href="#skills"
-                className="block text-gray-400 hover:text-white transition-colors"
+                className="block text-gray-300 transition-colors hover:text-white focus-visible:underline"
               >
                 Habilidades
               </a>
               <a
                 href="#contact"
-                className="block text-gray-400 hover:text-white transition-colors"
+                className="block text-gray-300 transition-colors hover:text-white focus-visible:underline"
               >
                 Contacto
               </a>
             </div>
-          </div>
+          </motion.nav>
 
           {/* Services */}
-          <div className="text-center md:text-right">
-            <h3 className="text-xl font-bold mb-6">Servicios</h3>
+          <motion.div
+            variants={fadeUp(0.1)}
+            className="text-center md:text-right"
+          >
+            <h3 className="mb-6 text-xl font-bold">Servicios</h3>
             <div className="space-y-3 text-gray-400">
-              <p>• Desarrollo Web Frontend</p>
+              <p>• Desarrollo Web Front-End</p>
               <p>• Diseño UI/UX</p>
-              <p>• Aplicaciones React</p>
+              <p>• Aplicaciones React/Next.js</p>
               <p>• Landing Pages</p>
               <p>• E-commerce</p>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Divider */}
         <div className="border-t border-gray-800 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
             {/* Copyright */}
             <div className="flex items-center space-x-2 text-gray-400">
-              <span>© 2025 Grimaldo Sánchez. Hecho con</span>
-              <Heart className="w-4 h-4 text-red-500" />
+              <span>© {year} Grimaldo Sánchez. Hecho con</span>
+              <Heart className="h-4 w-4 text-red-500" aria-hidden />
               <span>en Panamá</span>
             </div>
 
             {/* Tech Stack */}
-            <div className="flex items-center space-x-2 text-gray-400 text-sm">
+            <div className="flex items-center space-x-2 text-sm text-gray-400">
               <span>Construido con</span>
               <span className="text-blue-400">React</span>
               <span>+</span>
               <span className="text-teal-400">Tailwind</span>
               <span>+</span>
-              <span className="text-purple-400">Vite</span>
+              <span className="text-purple-400">Next.js</span>
             </div>
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="mt-12 text-center">
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold mb-4">
+        {/* Call to Action (ANIMADO) */}
+        <motion.div
+          variants={fadeUp(0.15)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-10% 0px" }}
+          className="mt-12 text-center"
+        >
+          <div className="rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 p-8">
+            <h3 className="mb-4 text-2xl font-bold">
               ¿Tienes un proyecto en mente?
             </h3>
-            <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+            <p className="mx-auto mb-6 max-w-2xl text-blue-100">
               Estoy siempre disponible para discutir nuevas oportunidades y
               proyectos emocionantes. ¡Hablemos!
             </p>
             <a
               href="#contact"
-              className="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition-colors"
+              data-cta="footer_primary"
+              className="inline-block rounded-full bg-white px-8 py-3 font-semibold text-blue-600 transition-all hover:scale-[1.03] hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               Empezar un Proyecto
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
+
+      {/* Botón flotante de WhatsApp (SIEMPRE visible) */}
+      <a
+        href="https://wa.me/50763441331?text=Hola%20Grimaldo%2C%20vi%20tu%20portafolio%20y%20quiero%20hablar%20contigo"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat en WhatsApp"
+        data-cta="floating_whatsapp"
+        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 shadow-lg transition-all duration-300 hover:scale-110 hover:bg-green-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+      >
+        <MessageCircle className="h-7 w-7 text-white" />
+      </a>
     </footer>
   );
 };

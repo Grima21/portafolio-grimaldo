@@ -1,130 +1,241 @@
+// src/components/AboutMe.tsx
+"use client";
+
 import Image from "next/image";
+import {
+  motion,
+  useInView,
+  useReducedMotion,
+  useMotionValue,
+  useTransform,
+  animate,
+} from "framer-motion";
+import { useRef, useEffect } from "react";
+import { fadeUp, stagger } from "@/lib/motion";
+const techStack = [
+  { name: "React", color: "bg-blue-500", level: 90 },
+  { name: "JavaScript", color: "bg-yellow-500", level: 90 },
+  { name: "TypeScript", color: "bg-blue-600", level: 70 },
+  { name: "Tailwind CSS", color: "bg-teal-500", level: 90 },
+  { name: "Next.js", color: "bg-black", level: 80 },
+  { name: "Firebase", color: "bg-orange-500", level: 85 },
+  { name: "Git", color: "bg-red-500", level: 85 },
+  { name: "Node.js", color: "bg-green-600", level: 50 },
+];
 
 export default function AboutMe() {
-  const techStack = [
-    { name: "React", color: "bg-blue-500", level: 90 },
-    { name: "JavaScript", color: "bg-yellow-500", level: 90 },
-    { name: "TypeScript", color: "bg-blue-600", level: 70 },
-    { name: "Tailwind CSS", color: "bg-teal-500", level: 90 },
-    { name: "Next.js", color: "bg-black", level: 80 },
-    { name: "Firebase", color: "bg-orange-500", level: 85 },
-    { name: "Git", color: "bg-red-500", level: 85 },
-    { name: "Node.js", color: "bg-green-600", level: 50 },
-  ];
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(sectionRef, { once: true, margin: "-10% 0px" });
+  const reduce = useReducedMotion();
 
   return (
-    <section id="sobre-mi" className="h-screen mt-12 min-h-screen scroll-mt-24">
-      <div className="container mx-auto">
-        <h2 className="text-center text-4xl font-bold mb-4">Sobre Mí</h2>
-        <p className="text-center text-xl text-gray-700 size-100">
-          Front-end Developer enfocado en crear interfaces intuitivas, rapidas y
-          visualmente atractivas.
-        </p>
+    <section
+      id="sobre-mi"
+      className="scroll-mt-24 px-6 py-20"
+      aria-labelledby="about-heading"
+    >
+      <div ref={sectionRef} className="container mx-auto max-w-6xl">
+        {/* Header */}
+        <div className="text-center">
+          <motion.h2
+            id="about-heading"
+            className="mb-3 text-4xl font-bold lg:text-5xl"
+            variants={fadeUp(0)}
+            initial="hidden"
+            animate={inView ? "show" : "hidden"}
+          >
+            Sobre mí
+          </motion.h2>
+          <motion.p
+            className="mx-auto max-w-2xl text-lg text-gray-700"
+            variants={fadeUp(0.05)}
+            initial="hidden"
+            animate={inView ? "show" : "hidden"}
+          >
+            Front-End Developer enfocado en interfaces intuitivas, rápidas y
+            visualmente atractivas.
+          </motion.p>
+        </div>
 
-        <div className="grid grid-cols-1 grid-cols-2 gap-16 item bg-center mt-10">
-          {/*Left */}
+        {/* Grid */}
+        <motion.div
+          variants={stagger(0.1)}
+          initial="hidden"
+          animate={inView ? "show" : "hidden"}
+          className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2"
+        >
+          {/* Left */}
           <div className="space-y-8">
-            <div className="w-64 h-64 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-2xl">
-              {/*contenedor Imagen */}
-              <div className="w-56 h-56 rounded-xl flex items-center justify-center shadow-inner">
-                <div>
-                  <Image
-                    src="/image/eva.webp"
-                    alt="Foto de perfil de Grimaldo Sánchez"
-                    width={224}
-                    height={224}
-                    className="rounded-2xl object-cover"
-                    priority
-                  />
-                </div>
+            {/* Marco + Avatar */}
+            <motion.div
+              variants={fadeUp(0.1)}
+              className="mx-auto flex h-64 w-64 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 p-2 shadow-2xl md:mx-0"
+            >
+              <div className="relative h-full w-full overflow-hidden rounded-xl bg-white/60 backdrop-blur">
+                <Image
+                  src="/image/eva.webp"
+                  alt="Foto de perfil de Grimaldo Sánchez"
+                  fill
+                  sizes="(min-width: 768px) 256px, 50vw"
+                  className="object-cover"
+                  priority
+                />
               </div>
-            </div>
-            <div className="text-center lg:text-left space-y-6">
+            </motion.div>
+
+            {/* Bio */}
+            <motion.div variants={fadeUp(0.15)} className="space-y-6">
               <h3 className="text-2xl font-bold text-gray-900">
                 ¡Hola! Soy Grimaldo
               </h3>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Técnico en Programación y Análisis de Sistemas con enfoque en el
-                desarrollo front-end. Me especializo en construir interfaces
-                modernas con React y Tailwind CSS, priorizando usabilidad,
-                diseño atractivo y rendimiento. He trabajado en proyectos reales
-                como dashboards, formularios dinámicos y sistemas con CRUD
-                completo, integrando tecnologías como Firebase y APIs externas.
-                Actualmente, estoy enfocado en mejorar mi portafolio, compartir
-                contenido técnico y colaborar en proyectos que me reten a crecer
-                profesionalmente.
+              <p className="text-gray-700 leading-relaxed">
+                Técnico en Programación y Análisis de Sistemas con enfoque en
+                front-end. Construyo interfaces modernas con React y Tailwind,
+                priorizando usabilidad, diseño y rendimiento. He creado
+                dashboards, formularios dinámicos y CRUDs completos integrando
+                Firebase y APIs externas. Actualmente mejoro mi portafolio,
+                comparto contenido técnico y busco retos que me hagan crecer.
               </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Estoy abierto a oportunidades remotas y freelance, donde pueda
-                aportar valor con código limpio, buenas prácticas y mentalidad
-                de equipo.
+              <p className="text-gray-700 leading-relaxed">
+                Abierto a oportunidades remotas y freelance: código limpio,
+                buenas prácticas y mentalidad de equipo.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-                <div className="flex items center space-x-3 bg-blue-50 p-4 rounded-lg shadow-md border-2 border-blue-200">
-                  📍 Panamá
-                </div>
-                <div className="flex items center space-x-3 bg-green-50 p-4 rounded-lg shadow-md border-2 border-green-200">
-                  🧑‍💻 2 años de experiencia práctica
-                </div>
-                <div className="flex items center space-x-3 bg-purple-50 p-4 rounded-lg shadow-md border-2 border-purple-200">
-                  🧰 Técnico en Programación
-                </div>
-                <div className="flex items center space-x-3 bg-red-50 p-4 rounded-lg shadow-md border-2 border-red-200">
-                  🎨 UI/UX Front-End Lover
-                </div>
+              {/* Facts */}
+              <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <Fact color="blue">📍 Panamá</Fact>
+                <Fact color="green">🧑‍💻 2 años de práctica</Fact>
+                <Fact color="purple">🧰 Técnico en Programación</Fact>
+                <Fact color="rose">🎨 UI/UX Front-End Lover</Fact>
               </div>
-            </div>
+            </motion.div>
           </div>
-          {/**Right */}
-          <div className="space-y-8">
-            <div className="text-center lg:text-left">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                {" "}
-                Stack Tecnologico
-              </h3>
-              <p className="text-gray-700 mb-8">
-                Tecnologias que domino y utilizo en mis proyectos diarios
-              </p>
-            </div>
 
-            <div className="space-y-6">
-              {techStack.map((tech, index) => (
-                <div key={tech.name} className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-800 font-bold">
-                      {" "}
-                      {tech.name}
-                    </span>
-                    <span className="text-gray-600 text-sm font-semibold">
-                      {tech.level}%
-                    </span>
-                  </div>
-                  <div className="w-full bg-gray-300 rounded-full h-4 overflow-hidden shadow-inner">
-                    <div
-                      className={`h-full ${tech.color} rounded-full transition-all duration-1000 ease-out shadow-sm`}
-                      style={{
-                        width: `${tech.level}%`,
-                        animationDelay: `${index * 0.1}s`,
-                      }}
-                    ></div>
-                  </div>
-                </div>
+          {/* Right */}
+          <div className="space-y-8">
+            <motion.div
+              variants={fadeUp(0.2)}
+              className="text-center md:text-left"
+            >
+              <h3 className="mb-2 text-2xl font-bold text-gray-900">
+                Stack Tecnológico
+              </h3>
+              <p className="text-gray-700">
+                Tecnologías que uso a diario en mis proyectos.
+              </p>
+            </motion.div>
+
+            <div className="space-y-5">
+              {techStack.map((tech, i) => (
+                <SkillBar
+                  key={tech.name}
+                  name={tech.name}
+                  color={tech.color}
+                  level={tech.level}
+                  index={i}
+                  animate={!reduce && inView}
+                />
               ))}
             </div>
-            {/*Fun Fact */}
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 rounded-2xl text-white mt-8 shadow-xl">
-              <h4 className="text-lg font-bold mb-2">💡 Dato curioso</h4>
+
+            {/* Fun fact */}
+            <motion.div
+              variants={fadeUp(0.25)}
+              className="mt-6 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-white shadow-xl"
+            >
+              <h4 className="mb-2 text-lg font-bold">💡 Dato curioso</h4>
               <p>
-                Cuando no estoy programando, disfruto explorar nuevas
-                tecnologías, resolver retos de lógica y contribuir a proyectos
-                open source. ¡La comunidad dev es una locura de talento y
-                aprendizaje constante!
+                Cuando no programo, exploro nuevas tecnologías, resuelvo retos
+                de lógica y contribuyo a open-source. La comunidad dev es puro
+                aprendizaje.
               </p>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
+  );
+}
+
+/* ---------- Sub-componentes ---------- */
+
+function Fact({
+  children,
+  color = "blue",
+}: {
+  children: React.ReactNode;
+  color?: "blue" | "green" | "purple" | "rose";
+}) {
+  const map = {
+    blue: "bg-blue-50 border-blue-200",
+    green: "bg-green-50 border-green-200",
+    purple: "bg-purple-50 border-purple-200",
+    rose: "bg-rose-50 border-rose-200",
+  } as const;
+
+  return (
+    <div
+      className={`rounded-lg border-2 p-4 shadow-md ${map[color]} 
+                  flex items-center gap-3`}
+      aria-live="polite"
+    >
+      <span aria-hidden>•</span>
+      <span className="font-medium">{children}</span>
+    </div>
+  );
+}
+
+function SkillBar({
+  name,
+  color,
+  level,
+  index,
+}: {
+  name: string;
+  color: string;
+  level: number;
+  index: number;
+}) {
+  // Ref propio de cada barra para detectar su visibilidad
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-10% 0px" });
+
+  // Contador numérico (0 -> level) cuando entra en vista
+  const mv = useMotionValue(0);
+  const rounded = useTransform(mv, (v) => Math.round(v));
+
+  useEffect(() => {
+    if (!inView) return;
+    const controls = animate(mv, level, {
+      duration: 0.8,
+      delay: index * 0.05,
+      ease: [0.22, 1, 0.36, 1],
+    });
+    return () => controls.stop();
+  }, [inView, level, index, mv]);
+
+  return (
+    <div ref={ref} className="space-y-2">
+      <div className="flex items-center justify-between">
+        <span className="font-semibold text-gray-800">{name}</span>
+        <span className="text-sm font-semibold text-gray-600">
+          <motion.span aria-hidden>{rounded}</motion.span>%
+        </span>
+      </div>
+
+      <div className="h-3 w-full overflow-hidden rounded-full bg-gray-200">
+        <motion.div
+          className={`h-full ${color} rounded-full shadow-sm`}
+          initial={{ width: 0 }}
+          whileInView={{ width: `${level}%` }} // <-- ligado al scroll
+          viewport={{ once: true, margin: "-10% 0px", amount: 0.6 }}
+          transition={{
+            duration: 0.8,
+            delay: index * 0.05,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+        />
+      </div>
+    </div>
   );
 }

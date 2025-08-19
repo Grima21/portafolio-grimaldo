@@ -5,6 +5,7 @@ import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import { stagger, fadeUp } from "@/lib/motion";
 import Tilt from "@/app/components/Tilt";
+import Image from "next/image";
 
 const Hero = () => {
   const goToProjects = () => {
@@ -15,7 +16,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="scroll-mt-24 min-h-screen flex items-center justify-center pt-16 px-6 bg-gradient-to-br from-blue-50 via-white to-purple-50"
+      className="scroll-mt-24 min-h-screen flex items-center justify-center  px-6 bg-gradient-to-br from-blue-50 via-white to-purple-50"
     >
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">

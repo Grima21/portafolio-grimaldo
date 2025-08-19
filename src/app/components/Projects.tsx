@@ -315,11 +315,11 @@ export default function Projects() {
           variants={stagger(0.08)}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "-10% 0px" }}
+          viewport={{ once: true, margin: "-20% 0px" }}
           className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
         >
           {list.map((p, i) => (
-            <ProjectCard key={p.id} p={p} delay={i * 0.03} />
+            <ProjectCard key={p.id} p={p} delay={i * 0.01} />
           ))}
         </motion.div>
       </div>

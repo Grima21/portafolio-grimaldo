@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Gracias — Mensaje enviado",
-  robots: { index: false, follow: false }, // no index para esta página
+  robots: { index: false, follow: false },
 };
 
 export default function GraciasPage() {

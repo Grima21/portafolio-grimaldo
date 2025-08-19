@@ -73,7 +73,7 @@ export default function AboutMe() {
             >
               <div className="relative h-full w-full overflow-hidden rounded-xl bg-white/60 backdrop-blur">
                 <Image
-                  src="/image/eva.webp"
+                  src="/image/IMG_4065.JPG"
                   alt="Foto de perfil de Grimaldo Sánchez"
                   fill
                   sizes="(min-width: 768px) 256px, 50vw"

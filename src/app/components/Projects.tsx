@@ -19,7 +19,12 @@ type Project = {
   description: string;
   image: string;
   technologies: string[];
-  category: "Dashboards" | "Landing Pages" | "Apps Web" | "E-commerce";
+  category:
+    | "Dashboards"
+    | "Landing Pages"
+    | "Apps Web"
+    | "E-commerce"
+    | "Portfolios";
   demoUrl: string;
   githubUrl: string;
 };
@@ -30,6 +35,7 @@ const CATEGORIES = [
   "Landing Pages",
   "Apps Web",
   "E-commerce",
+  "Portfolios",
 ] as const;
 
 const PROJECTS: Project[] = [

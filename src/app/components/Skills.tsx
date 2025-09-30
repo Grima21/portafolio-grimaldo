@@ -21,14 +21,19 @@ const listStagger = {
   hidden: {},
   show: { transition: { staggerChildren: 0.04 } },
 };
-const listItem = (delay = 0) => ({
-  hidden: { opacity: 0, x: -8 },
-  show: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.28, ease: [0.42, 0, 0.58, 1], delay },
-  },
-});
+const listItem = (delay: number) =>
+  ({
+    hidden: { opacity: 0, x: -20 },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+        delay,
+      },
+    },
+  } as const);
 
 const Skills = () => {
   const technicalSkills = [

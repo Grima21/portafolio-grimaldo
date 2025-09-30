@@ -69,11 +69,11 @@ export default function AboutMe() {
             {/* Marco + Avatar */}
             <motion.div
               variants={fadeUp(0.1)}
-              className="mx-auto flex h-64 w-64 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 p-2 shadow-2xl md:mx-0"
+              className="mx-auto flex h-72 w-64 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 p-2 shadow-2xl md:mx-0"
             >
               <div className="relative h-full w-full overflow-hidden rounded-xl bg-white/60 backdrop-blur">
                 <Image
-                  src="/image/IMG_4065.JPG"
+                  src="/image/imgPerfil.jpg"
                   alt="Foto de perfil de Grimaldo Sánchez"
                   fill
                   sizes="(min-width: 768px) 256px, 50vw"
@@ -133,7 +133,7 @@ export default function AboutMe() {
                   color={tech.color}
                   level={tech.level}
                   index={i}
-                  animate={!reduce && inView}
+                  // animate={!reduce && inView}
                 />
               ))}
             </div>

@@ -35,75 +35,47 @@ const CATEGORIES = [
 const PROJECTS: Project[] = [
   {
     id: 1,
-    title: "Dashboard Analytics",
+    title: "Porsche Taycan Landing Page",
     description:
-      "Panel de control moderno con visualización de datos en tiempo real y métricas avanzadas.",
-    image:
-      "https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    technologies: ["React", "Chart.js", "Tailwind", "Firebase"],
-    category: "Dashboards",
-    demoUrl: "https://demo.com",
-    githubUrl: "https://github.com",
+      "Landing page inspirada en el Porsche Taycan, con un diseño moderno, animaciones suaves y enfoque en experiencia de usuario.",
+    image: "/project/Project-Landing-Taycan.png",
+    technologies: ["React", "Tailwind", "Framer Motion", "Vite"],
+    category: "Landing Pages",
+    demoUrl: "https://taycan-landing-page.vercel.app/",
+    githubUrl: "https://github.com/Grima21/landing-page-vehicle",
   },
   {
     id: 2,
-    title: "E-commerce Platform",
+    title: "Portafolio Arquitecto",
     description:
-      "Plataforma de comercio electrónico completa con carrito de compras y pasarela de pago.",
-    image:
-      "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    technologies: ["Next.js", "Stripe", "MongoDB", "Tailwind"],
-    category: "E-commerce",
-    demoUrl: "https://demo.com",
-    githubUrl: "https://github.com",
+      "Sitio web diseñado para un arquitecto, mostrando proyectos, servicios y contacto en un estilo elegante y profesional.",
+    image: "/project/Projec-Landing-Arquitecto.png",
+    technologies: ["Next.js", "Tailwind", "Framer Motion"],
+    category: "Portfolios",
+    demoUrl: "https://portafolio-arquitecto-drab.vercel.app/",
+    githubUrl: "https://github.com/Grima21/portafolio-arquitecto",
   },
   {
     id: 3,
-    title: "Landing Page Startup",
+    title: "Toyota Website",
     description:
-      "Landing page moderna y responsiva para startup tecnológica con animaciones avanzadas.",
-    image:
-      "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    technologies: ["React", "Framer Motion", "Tailwind", "Vite"],
+      "Proyecto web inspirado en el sitio oficial de Toyota, con carrusel de modelos, secciones de características y testimonios interactivos.",
+    image: "/project/Project-Landing-toyota.png",
+    technologies: ["React", "Tailwind", "Framer Motion", "Vite"],
     category: "Landing Pages",
-    demoUrl: "https://demo.com",
-    githubUrl: "https://github.com",
+    demoUrl: "https://project-website-toyota.vercel.app/",
+    githubUrl: "https://github.com/Grima21/project-website-toyota",
   },
   {
     id: 4,
-    title: "Task Management App",
+    title: "Gym Website",
     description:
-      "Aplicación de gestión de tareas con colaboración en tiempo real y notificaciones.",
-    image:
-      "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    technologies: ["React", "Socket.io", "Node.js", "PostgreSQL"],
-    category: "Apps Web",
-    demoUrl: "https://demo.com",
-    githubUrl: "https://github.com",
-  },
-  {
-    id: 5,
-    title: "Restaurant Website",
-    description:
-      "Sitio web elegante para restaurante con menú interactivo y sistema de reservas.",
-    image:
-      "https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    technologies: ["React", "Tailwind", "Firebase", "EmailJS"],
+      "Página web para un gimnasio con secciones de planes, entrenadores, testimonios y un estilo enérgico y moderno.",
+    image: "/project/Project-Landing-Gym.png",
+    technologies: ["Next.js", "Tailwind", "Framer Motion"],
     category: "Landing Pages",
-    demoUrl: "https://demo.com",
-    githubUrl: "https://github.com",
-  },
-  {
-    id: 6,
-    title: "CRM Dashboard",
-    description:
-      "Sistema CRM completo con gestión de clientes, ventas y reportes avanzados.",
-    image:
-      "https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    technologies: ["React", "Redux", "Material-UI", "Node.js"],
-    category: "Dashboards",
-    demoUrl: "https://demo.com",
-    githubUrl: "https://github.com",
+    demoUrl: "https://gym-website-three-zeta.vercel.app/",
+    githubUrl: "https://github.com/Grima21/gym-website",
   },
 ];
 

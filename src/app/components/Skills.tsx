@@ -1,7 +1,3 @@
-// src/components/Skills.tsx
-// src/components/Skills.tsx
-"use client";
-
 import React from "react";
 import {
   Code,
@@ -14,19 +10,23 @@ import {
   Star,
 } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import type { Variants, Easing } from "framer-motion"; // 👈 tipos
 import { fadeUp, stagger } from "@/lib/motion";
 
-/* --- extras para listas con trail --- */
-const listStagger = {
+/* --- extras para listas con trail (TIPADOS) --- */
+const easeOutBezier: Easing = [0.22, 1, 0.36, 1]; // 👈 tuple válido
+
+const listStagger: Variants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.04 } },
 };
-const listItem = (delay = 0) => ({
+
+const listItem = (delay = 0): Variants => ({
   hidden: { opacity: 0, x: -8 },
   show: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.28, ease: [0.22, 1, 0.36, 1], delay },
+    transition: { duration: 0.28, ease: easeOutBezier, delay }, // 👈 tipo OK
   },
 });
 

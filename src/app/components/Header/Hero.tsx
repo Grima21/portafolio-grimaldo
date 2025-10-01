@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
-
 import { motion } from "framer-motion";
 import { stagger, fadeUp } from "@/lib/motion";
 import Tilt from "@/app/components/Tilt";
@@ -9,14 +8,14 @@ import Image from "next/image";
 
 const Hero = () => {
   const goToProjects = () => {
-    const el = document.querySelector("#projects");
+    const el = document.querySelector("#proyectos");
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
     <section
       id="hero"
-      className="scroll-mt-24 min-h-screen flex items-center justify-center  px-6 bg-gradient-to-br from-blue-50 via-white to-purple-50"
+      className="scroll-mt-24  scroll-smooth min-h-screen flex items-center justify-center px-6 bg-gradient-to-br from-blue-50 via-white to-purple-50"
     >
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
@@ -105,6 +104,7 @@ const Hero = () => {
               animate="show"
               className="relative"
             >
+              {/* Aro con iniciales */}
               <div className="w-80 h-80 lg:w-96 lg:h-96 bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500 rounded-full flex items-center justify-center shadow-2xl">
                 <div className="w-72 h-72 lg:w-88 lg:h-88 bg-white rounded-full flex items-center justify-center shadow-inner">
                   <div className="text-6xl lg:text-8xl font-bold bg-gradient-to-br from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -113,10 +113,50 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* Floating Elements (deja los CSS animations nativas) */}
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg animate-bounce shadow-lg"></div>
-              <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full animate-pulse shadow-lg"></div>
-              <div className="absolute top-1/3 -left-8 w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full animate-ping shadow-lg"></div>
+              {/* Floating logos: wrapper absoluto + Image con fill */}
+              <div className="absolute -top-4 -right-4 w-16 h-16 rounded-lg animate-bounce drop-shadow-md pointer-events-none">
+                <Image
+                  src="/image/html5.png"
+                  alt="HTML5"
+                  fill
+                  sizes="(max-width: 1024px) 64px, 64px"
+                  className="object-contain"
+                  priority
+                />
+              </div>
+
+              <div className="absolute -bottom-6 -left-6 w-20 h-20 rounded-full animate-pulse drop-shadow-md pointer-events-none">
+                <Image
+                  src="/image/Css.png"
+                  alt="CSS3"
+                  fill
+                  sizes="(max-width: 1024px) 80px, 80px"
+                  className="object-contain"
+                  priority
+                />
+              </div>
+
+              <div className="absolute top-1/3 -left-8 w-20 h-20 rounded-full animate-bounce drop-shadow-md pointer-events-none">
+                <Image
+                  src="/image/Js.webp"
+                  alt="JavaScript"
+                  fill
+                  sizes="(max-width: 1024px) 80px, 80px"
+                  className="object-contain"
+                  priority
+                />
+              </div>
+
+              <div className="absolute bottom-20 right-8 w-14 h-14 rounded-full animate-bounce drop-shadow-md pointer-events-none">
+                <Image
+                  src="/image/React.png"
+                  alt="React"
+                  fill
+                  sizes="(max-width: 1024px) 56px, 56px"
+                  className="object-contain"
+                  priority
+                />
+              </div>
             </motion.div>
           </div>
         </div>

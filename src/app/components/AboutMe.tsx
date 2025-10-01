@@ -31,7 +31,7 @@ export default function AboutMe() {
   return (
     <section
       id="sobre-mi"
-      className="scroll-mt-24 px-6 py-20"
+      className="scroll-mt-30 scroll-smooth px-6 py-20"
       aria-labelledby="about-heading"
     >
       <div ref={sectionRef} className="container mx-auto max-w-6xl">

@@ -286,9 +286,9 @@ function MagneticCTA() {
 
   return (
     <motion.a
-      href="#contact"
+      href="#contacto"
       aria-label="Ir a contacto"
-      className="group relative inline-block rounded-full bg-white px-8 py-3 font-bold text-blue-600 shadow-lg transition-colors hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+      className=" scroll-smooth group relative inline-block rounded-full bg-white px-8 py-3 font-bold text-blue-600 shadow-lg transition-colors hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
       style={{ x, y, rotate }}
       onMouseMove={(e) => {
         const r = (

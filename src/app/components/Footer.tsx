@@ -26,7 +26,7 @@ const Footer = () => {
   return (
     <footer
       id="footer"
-      className="relative scroll-mt-24 bg-gray-900 px-6 py-16 text-white"
+      className="relative scroll-mt-24 scroll-smooth bg-gray-900 px-6 py-16 text-white"
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" className="sr-only">
@@ -119,7 +119,7 @@ const Footer = () => {
                 Inicio
               </a>
               <a
-                href="#proyecto"
+                href="#proyectos"
                 className="block text-gray-300 transition-colors hover:text-white focus-visible:underline"
               >
                 Proyectos
@@ -137,7 +137,7 @@ const Footer = () => {
                 Habilidades
               </a>
               <a
-                href="#contact"
+                href="#contacto"
                 className="block text-gray-300 transition-colors hover:text-white focus-visible:underline"
               >
                 Contacto

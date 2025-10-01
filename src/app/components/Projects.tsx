@@ -256,8 +256,8 @@ export default function Projects() {
 
   return (
     <section
-      id="projects"
-      className="scroll-mt-24 bg-gray-100 px-6 py-20"
+      id="proyectos"
+      className="scroll-mt-30 scroll-smooth bg-gray-100 px-6 py-20"
       aria-labelledby="proyectos-heading"
     >
       <div className="container mx-auto">

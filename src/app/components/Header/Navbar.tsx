@@ -22,7 +22,7 @@ export default function Navbar() {
             </a>
             <a
               className=" font-semibold text-gray-800  hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-              href="#proyecto"
+              href="#proyectos"
             >
               Proyectos
             </a>

@@ -10,8 +10,8 @@ const FORMSPREE_ID = "mbklkloe"; // <- TU ID EXACTO
 export default function Contact() {
   return (
     <section
-      id="contact"
-      className="scroll-mt-24 bg-gray-50 px-6 py-20"
+      id="contacto"
+      className="scroll-mt-30 scroll-smooth bg-gray-50 px-6 py-20"
       aria-labelledby="contact-heading"
     >
       <div className="container mx-auto max-w-6xl">

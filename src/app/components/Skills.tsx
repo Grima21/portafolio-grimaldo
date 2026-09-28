@@ -40,7 +40,7 @@ const Skills = () => {
     {
       category: "Frontend",
       icon: <Code className="w-6 h-6" />,
-      color: "bg-blue-500",
+      color: "bg-stone-700",
       skills: [
         "HTML5",
         "CSS3",
@@ -68,7 +68,7 @@ const Skills = () => {
     {
       category: "Tools & DevOps",
       icon: <Globe className="w-6 h-6" />,
-      color: "bg-purple-500",
+      color: "bg-stone-600",
       skills: [
         "Git",
         "GitHub",
@@ -83,7 +83,7 @@ const Skills = () => {
     {
       category: "Design & UX",
       icon: <Palette className="w-6 h-6" />,
-      color: "bg-pink-500",
+      color: "bg-amber-700",
       skills: [
         "Figma",
         "Adobe XD",
@@ -198,7 +198,7 @@ const Skills = () => {
                       variants={listItem(idx * 0.02)}
                       className="flex items-center space-x-2 text-gray-700"
                     >
-                      <span className="h-3 w-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
+                      <span className="h-3 w-3 rounded-full bg-gradient-to-r from-stone-800 to-amber-700" />
                       <span className="text-sm font-medium">{skill}</span>
                     </motion.li>
                   ))}
@@ -233,7 +233,7 @@ const Skills = () => {
                     whileHover={{ scale: 1.06, rotate: 1 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ type: "spring", stiffness: 220, damping: 14 }}
-                    className="rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 p-3 text-white shadow-md"
+                    className="rounded-lg bg-gradient-to-br from-stone-800 to-amber-700 p-3 text-white shadow-md"
                     aria-hidden
                   >
                     {skill.icon}
@@ -260,7 +260,7 @@ const Skills = () => {
           viewport={{ once: true, margin: "-10% 0px" }}
           className="mt-16 text-center"
         >
-          <div className="rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 p-8 text-white shadow-2xl">
+          <div className="rounded-2xl bg-gradient-to-r from-stone-900 to-stone-700 p-8 text-white shadow-2xl">
             <h3 className="mb-4 text-2xl font-bold">¿Listo para colaborar?</h3>
             <p className="mb-6 text-lg opacity-90">
               Estas habilidades me permiten entregar proyectos de alta calidad,
@@ -288,7 +288,7 @@ function MagneticCTA() {
     <motion.a
       href="#contacto"
       aria-label="Ir a contacto"
-      className=" scroll-smooth group relative inline-block rounded-full bg-white px-8 py-3 font-bold text-blue-600 shadow-lg transition-colors hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+      className=" scroll-smooth group relative inline-block rounded-full bg-white px-8 py-3 font-bold text-stone-900 shadow-lg transition-colors hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
       style={{ x, y, rotate }}
       onMouseMove={(e) => {
         const r = (

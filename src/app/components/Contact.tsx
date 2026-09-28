@@ -63,7 +63,7 @@ export default function Contact() {
                 variants={fadeUp(0.02)}
                 className="flex items-center gap-4"
               >
-                <div className="rounded-lg bg-blue-600 p-3 shadow-lg">
+                <div className="rounded-lg bg-stone-800 p-3 shadow-lg">
                   <Mail className="h-6 w-6 text-white" />
                 </div>
                 <div>
@@ -87,7 +87,7 @@ export default function Contact() {
                 variants={fadeUp(0.06)}
                 className="flex items-center gap-4"
               >
-                <div className="rounded-lg bg-purple-600 p-3 shadow-lg">
+                <div className="rounded-lg bg-stone-700 p-3 shadow-lg">
                   <MapPin className="h-6 w-6 text-white" />
                 </div>
                 <div>
@@ -99,12 +99,12 @@ export default function Contact() {
 
             <motion.div
               variants={fadeUp(0.08)}
-              className="rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-white shadow-xl"
+              className="rounded-2xl bg-gradient-to-r from-stone-900 to-stone-700 p-6 text-white shadow-xl"
             >
               <h4 className="mb-2 text-lg font-bold">
                 🚀 ¿Listo para empezar?
               </h4>
-              <p className="text-blue-100">Te respondo en menos de 24 horas.</p>
+              <p className="text-stone-200">Te respondo en menos de 24 horas.</p>
             </motion.div>
           </motion.div>
 
@@ -177,7 +177,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-4 font-bold text-white transition-all duration-300 hover:scale-105 hover:from-blue-700 hover:to-purple-700 hover:shadow-xl"
+                className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-stone-900 to-stone-700 px-6 py-4 font-bold text-white transition-all duration-300 hover:scale-105 hover:from-stone-950 hover:to-stone-800 hover:shadow-xl"
               >
                 <Send className="h-5 w-5" />
                 <span>Enviar Mensaje</span>
@@ -216,7 +216,7 @@ function Field(props: {
         placeholder={placeholder}
         autoComplete={autoComplete}
         required={required}
-        className="w-full rounded-lg border-2 border-gray-300 bg-white px-4 py-3 text-gray-900 transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+        className="w-full rounded-lg border-2 border-gray-300 bg-white px-4 py-3 text-gray-900 transition-all focus:border-amber-700 focus:ring-2 focus:ring-amber-700"
       />
     </div>
   );
@@ -244,7 +244,7 @@ function TextArea(props: {
         rows={rows}
         placeholder={placeholder}
         required={required}
-        className="w-full resize-none rounded-lg border-2 border-gray-300 bg-white px-4 py-3 text-gray-900 transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+        className="w-full resize-none rounded-lg border-2 border-gray-300 bg-white px-4 py-3 text-gray-900 transition-all focus:border-amber-700 focus:ring-2 focus:ring-amber-700"
       />
     </div>
   );

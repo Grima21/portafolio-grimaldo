@@ -36,7 +36,7 @@ const Footer = () => {
       {/* Scroll to Top Button */}
       <button
         onClick={scrollToTop}
-        className="absolute -top-6 left-1/2 -translate-x-1/2 transform rounded-full bg-blue-600 p-3 shadow-lg transition-all duration-300 hover:scale-110 hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+        className="absolute -top-6 left-1/2 -translate-x-1/2 transform rounded-full bg-stone-800 p-3 shadow-lg transition-all duration-300 hover:scale-110 hover:bg-stone-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
         aria-label="Volver arriba"
         data-cta="footer_back_to_top"
       >
@@ -56,7 +56,7 @@ const Footer = () => {
           <motion.div variants={fadeUp(0)} className="text-center md:text-left">
             <div className="mb-4 text-3xl font-bold">
               <span className="text-white">Grimaldo</span>
-              <span className="text-blue-400"> Sánchez</span>
+              <span className="text-amber-500"> Sánchez</span>
             </div>
             <p className="mb-6 leading-relaxed text-gray-400">
               Desarrollador Front-End especializado en crear experiencias web
@@ -71,7 +71,7 @@ const Footer = () => {
                 data-cta="footer_github"
                 className="group rounded-lg bg-gray-800 p-3 transition-colors hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
               >
-                <Github className="h-5 w-5 group-hover:text-blue-400" />
+                <Github className="h-5 w-5 group-hover:text-amber-500" />
               </a>
               <a
                 href="https://www.linkedin.com/in/grimaldo-sanchez/"
@@ -79,7 +79,7 @@ const Footer = () => {
                 rel="me noopener noreferrer"
                 aria-label="LinkedIn"
                 data-cta="footer_linkedin"
-                className="group rounded-lg bg-blue-700 p-3 transition-colors hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
+                className="group rounded-lg bg-stone-700 p-3 transition-colors hover:bg-stone-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
               >
                 <Linkedin className="h-5 w-5 text-white" />
               </a>
@@ -87,7 +87,7 @@ const Footer = () => {
                 href="mailto:grimaldosanchez.dev@gmail.com?subject=Proyecto%20-%20Portafolio&body=Hola%20Grimaldo%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20hablar%20sobre..."
                 aria-label="Enviar email"
                 data-cta="footer_email"
-                className="group rounded-lg bg-red-700 p-3 transition-colors hover:bg-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
+                className="group rounded-lg bg-stone-600 p-3 transition-colors hover:bg-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
               >
                 <Mail className="h-5 w-5 text-white" />
               </a>
@@ -174,7 +174,7 @@ const Footer = () => {
             {/* Tech Stack */}
             <div className="flex items-center space-x-2 text-sm text-gray-400">
               <span>Construido con</span>
-              <span className="text-blue-400">React</span>
+              <span className="text-amber-500">React</span>
               <span>+</span>
               <span className="text-teal-400">Tailwind</span>
               <span>+</span>

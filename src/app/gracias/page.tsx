@@ -27,7 +27,7 @@ export default function GraciasPage() {
           </Link>
           <Link
             href="#projects"
-            className="rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-5 py-2 font-semibold text-white transition-opacity hover:opacity-90"
+            className="rounded-full bg-stone-900 px-5 py-2 font-semibold text-white transition-opacity hover:opacity-90"
           >
             Ver proyectos
           </Link>

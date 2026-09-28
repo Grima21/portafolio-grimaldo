@@ -15,7 +15,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="scroll-mt-24  scroll-smooth min-h-screen flex items-center justify-center px-6 bg-gradient-to-br from-blue-50 via-white to-purple-50"
+      className="scroll-mt-24  scroll-smooth min-h-screen flex items-center justify-center px-6 bg-stone-100"
     >
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
@@ -32,7 +32,7 @@ const Hero = () => {
                 className="text-5xl lg:text-7xl font-bold text-gray-900 leading-tight"
               >
                 <span className="block">Grimaldo</span>
-                <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <span className="block text-stone-900">
                   Sánchez
                 </span>
               </motion.h1>
@@ -49,9 +49,9 @@ const Hero = () => {
                 className="text-lg text-gray-700 max-w-2xl leading-relaxed mx-auto lg:mx-0"
               >
                 Creo experiencias web limpias, rápidas y escalables usando
-                <span className="text-blue-700 font-bold"> React</span>,
-                <span className="text-emerald-600 font-bold"> Tailwind</span> y
-                <span className="text-orange-600 font-bold"> Firebase</span>.
+                <span className="text-stone-700 font-bold"> React</span>,
+                <span className="text-stone-700 font-bold"> Tailwind</span> y
+                <span className="text-amber-700 font-bold"> Firebase</span>.
               </motion.p>
 
               {/* Social Links */}
@@ -71,13 +71,13 @@ const Hero = () => {
                   href="https://www.linkedin.com/in/grimaldo-sanchez/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-blue-600 rounded-full hover:bg-blue-700 transition-all hover:scale-110"
+                  className="p-3 bg-stone-800 rounded-full hover:bg-stone-950 transition-all hover:scale-110"
                 >
                   <Linkedin className="w-5 h-5 text-white" />
                 </a>
                 <a
                   href="mailto:grimaldosanchez.dev@gmail.com"
-                  className="p-3 bg-red-600 rounded-full hover:bg-red-700 transition-all hover:scale-110"
+                  className="p-3 bg-stone-600 rounded-full hover:bg-stone-800 transition-all hover:scale-110"
                 >
                   <Mail className="w-5 h-5 text-white" />
                 </a>
@@ -87,7 +87,7 @@ const Hero = () => {
               <motion.div variants={fadeUp(0.2)} className="pt-8">
                 <button
                   onClick={goToProjects}
-                  className="group inline-flex items-center space-x-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full transition-all duration-300 hover:shadow-2xl hover:scale-105 font-bold text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
+                  className="group inline-flex items-center space-x-3 bg-stone-900 hover:bg-stone-700 text-white px-8 py-4 rounded-full transition-all duration-300 hover:shadow-2xl hover:scale-105 font-bold text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
                 >
                   <span>Ver Proyectos</span>
                   <ArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
@@ -105,9 +105,9 @@ const Hero = () => {
               className="relative"
             >
               {/* Aro con iniciales */}
-              <div className="w-80 h-80 lg:w-96 lg:h-96 bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500 rounded-full flex items-center justify-center shadow-2xl">
+              <div className="w-80 h-80 lg:w-96 lg:h-96 bg-stone-800 rounded-full flex items-center justify-center shadow-2xl">
                 <div className="w-72 h-72 lg:w-88 lg:h-88 bg-white rounded-full flex items-center justify-center shadow-inner">
-                  <div className="text-6xl lg:text-8xl font-bold bg-gradient-to-br from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  <div className="text-6xl lg:text-8xl font-bold text-stone-900">
                     GS
                   </div>
                 </div>

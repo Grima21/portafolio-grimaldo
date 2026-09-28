@@ -13,9 +13,9 @@ import {
 import { useRef, useEffect } from "react";
 import { fadeUp, stagger } from "@/lib/motion";
 const techStack = [
-  { name: "React", color: "bg-blue-500", level: 90 },
+  { name: "React", color: "bg-stone-700", level: 90 },
   { name: "JavaScript", color: "bg-yellow-500", level: 90 },
-  { name: "TypeScript", color: "bg-blue-600", level: 70 },
+  { name: "TypeScript", color: "bg-stone-800", level: 70 },
   { name: "Tailwind CSS", color: "bg-teal-500", level: 90 },
   { name: "Next.js", color: "bg-black", level: 80 },
   { name: "Firebase", color: "bg-orange-500", level: 85 },
@@ -69,7 +69,7 @@ export default function AboutMe() {
             {/* Marco + Avatar */}
             <motion.div
               variants={fadeUp(0.1)}
-              className="mx-auto flex h-72 w-64 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 p-2 shadow-2xl md:mx-0"
+              className="mx-auto flex h-72 w-64 items-center justify-center rounded-2xl bg-gradient-to-br from-stone-800 to-stone-600 p-2 shadow-2xl md:mx-0"
             >
               <div className="relative h-full w-full overflow-hidden rounded-xl bg-white/60 backdrop-blur">
                 <Image
@@ -141,7 +141,7 @@ export default function AboutMe() {
             {/* Fun fact */}
             <motion.div
               variants={fadeUp(0.25)}
-              className="mt-6 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-white shadow-xl"
+              className="mt-6 rounded-2xl bg-gradient-to-r from-stone-900 to-stone-700 p-6 text-white shadow-xl"
             >
               <h4 className="mb-2 text-lg font-bold">💡 Dato curioso</h4>
               <p>
@@ -167,9 +167,9 @@ function Fact({
   color?: "blue" | "green" | "purple" | "rose";
 }) {
   const map = {
-    blue: "bg-blue-50 border-blue-200",
+    blue: "bg-stone-50 border-stone-200",
     green: "bg-green-50 border-green-200",
-    purple: "bg-purple-50 border-purple-200",
+    purple: "bg-amber-50 border-amber-200",
     rose: "bg-rose-50 border-rose-200",
   } as const;
 

@@ -113,7 +113,7 @@ function FilterBar({
             {isActive && (
               <motion.span
                 layoutId="pill"
-                className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 shadow"
+                className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-stone-800 to-stone-600 shadow"
                 transition={{ type: "spring", stiffness: 450, damping: 40 }}
               />
             )}
@@ -184,7 +184,7 @@ function ProjectCard({ p, delay = 0 }: { p: Project; delay?: number }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Ver demo de ${p.title}`}
-              className="rounded-full bg-blue-600 p-3 text-white shadow-lg transition-colors hover:bg-blue-700 focus:outline-none focus-visible:ring-2"
+              className="rounded-full bg-stone-800 p-3 text-white shadow-lg transition-colors hover:bg-blue-700 focus:outline-none focus-visible:ring-2"
             >
               <ExternalLink className="h-5 w-5" />
             </a>
@@ -211,7 +211,7 @@ function ProjectCard({ p, delay = 0 }: { p: Project; delay?: number }) {
           {p.technologies.map((t) => (
             <span
               key={t}
-              className="rounded-full bg-blue-600 px-3 py-1 text-sm font-medium text-white"
+              className="rounded-full bg-stone-800 px-3 py-1 text-sm font-medium text-white"
             >
               {t}
             </span>
@@ -223,7 +223,7 @@ function ProjectCard({ p, delay = 0 }: { p: Project; delay?: number }) {
             href={p.demoUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-semibold text-blue-700 transition-colors hover:text-blue-800 focus-visible:ring-2"
+            className="inline-flex items-center gap-2 font-semibold text-amber-800 transition-colors hover:text-blue-800 focus-visible:ring-2"
           >
             <ExternalLink className="h-4 w-4" />
             Demo

@@ -2,8 +2,132 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --background: 222 24% 8%;
+  --surface: 222 19% 12%;
+  --surface-raised: 222 17% 16%;
+  --foreground: 210 20% 94%;
+  --muted: 215 12% 68%;
+  --border: 215 14% 24%;
+  --accent: 158 38% 58%;
+  --accent-strong: 158 42% 48%;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* Calm dark portfolio theme: restrained contrast keeps recruiter attention on the work. */
+.bg-white,
+.bg-gray-50,
+.bg-gray-100,
+.bg-white\/70 {
+  background-color: hsl(var(--surface)) !important;
+}
+
+#hero {
+  background: radial-gradient(circle at 75% 35%, hsl(158 30% 18% / 0.42), transparent 34%), hsl(var(--background)) !important;
+}
+
+#skills,
+#proyectos {
+  background: hsl(var(--background)) !important;
+}
+
+#contacto {
+  background: hsl(222 22% 10%) !important;
+}
+
+.text-gray-900,
+.text-gray-800,
+.text-gray-700,
+.text-gray-600 {
+  color: hsl(var(--foreground)) !important;
+}
+
+.text-gray-700,
+.text-gray-600 {
+  color: hsl(var(--muted)) !important;
+}
+
+.border-gray-200,
+.border-gray-300,
+.border-blue-200 {
+  border-color: hsl(var(--border)) !important;
+}
+
+.bg-gray-800,
+.bg-black,
+.bg-red-600,
+.bg-blue-700,
+.bg-purple-700,
+.bg-blue-600,
+.bg-blue-500,
+.bg-purple-600,
+.bg-purple-500,
+.bg-green-600,
+.bg-green-500,
+.bg-pink-500,
+.bg-orange-500,
+.bg-red-500,
+.bg-yellow-500,
+.bg-teal-500 {
+  background-color: hsl(var(--accent-strong)) !important;
+}
+
+.text-blue-700,
+.text-blue-600,
+.text-blue-500,
+.hover\\:text-blue-600:hover {
+  color: hsl(var(--accent)) !important;
+}
+
+.bg-gradient-to-r,
+.bg-gradient-to-br,
+.bg-gradient-to-b {
+  background-image: none !important;
+  background-color: hsl(var(--surface-raised)) !important;
+}
+
+.from-blue-600,
+.to-purple-600,
+.from-blue-500,
+.to-purple-500 {
+  --tw-gradient-from: transparent !important;
+  --tw-gradient-to: transparent !important;
+}
+
+#hero h1 span:last-child,
+#hero p span {
+  color: hsl(var(--accent)) !important;
+  background-image: none !important;
+}
+
+#hero a[class*="bg-"] {
+  background-color: hsl(var(--surface-raised)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+input,
+textarea {
+  border-color: hsl(var(--border)) !important;
+  background: hsl(var(--surface-raised)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: hsl(var(--muted)) !important;
+}
+
+button,
+a {
+  transition-duration: 220ms;
 }
 
 @keyframes shimmer {
